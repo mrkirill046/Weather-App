@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at 50% 50%, #74ebd5, #ACB6E5);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+.weather-app {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+    flex: 1;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #007BFF;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.weather-info {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.weather-info h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.weather-info img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.weather-info p {
+    margin: 5px 0;
+    font-size: 1em;
+    line-height: 1.4em;
+}
+
+.weather-info .temperature {
+    font-size: 2em;
+    font-weight: bold;
+}

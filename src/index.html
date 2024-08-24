@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <main class="weather-app">
+        <h1>Weather in Your City</h1>
+        <div class="input-group">
+            <label for="city"></label><input type="text" id="city" placeholder="Enter city name">
+            <button onclick="getWeather()">Get Weather</button>
+        </div>
+        
+        <div id="weather" class="weather-info">
+            <!-- Здесь будут отображаться данные о погоде -->
+        </div>
+    </main>
+    
+    <script>
+        async function getWeather() {
+            const city = document.getElementById('city').value
+            if (!city) {
+                alert("Please enter a city name!")
+                return
+            }
+    
+            try {
+                const response = await window.__TAURI__.invoke('get_weather', { city })
+                const weatherElement = document.getElementById('weather')
+                weatherElement.innerHTML = response
+            } catch (error) {
+                console.error("Error getting weather:", error)
+                alert("Failed to get weather data. Please check the console for more details.")
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            document.body.style.background = `radial-gradient(circle at ${x}px ${y}px, #74ebd5, #ACB6E5)`;
+        });
+    </script>
+</body>
+</html>
